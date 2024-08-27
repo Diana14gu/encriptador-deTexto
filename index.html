@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="./img/Logo.png" alt="Logo Alura">
+  </header>
+  
+  <main>
+    <form class="lado_input";>
+      <textarea class="text_in"; id="" cols="30" rows="10" placeholder="Ingrese el texto aqui"></textarea>
+      <div class="nota";>
+        <img src="./img/icono_nota.png" alt="icono_nota" class="icono_nota"> <span>Solo letras minúsculas y sin acentos</span>
+      </div>
+     
+      <div class="area_btns";>   
+        <input class="btn_blue"; type="submit" value="Encriptar">
+        <input class="btn_white"; type="submit" value="Desencriptar">
+      
+      </div>
+    </form>
+
+    
+    
+      <aside class="result";>
+        <img src="./img/Muñeco.png" class="resultado_img"; alt="imagen_monito">
+        <div class="loader";></div>
+
+        <div class="contenedor_resultados";> 
+          <h3 class="resultado_titulo";>
+            Ningún mensaje fue encontrado
+          </h3>
+          <h4 class="resultado_nota";>
+            Ingresa el texto que desees encriptar o desencriptar.
+          </h4>
+          
+        <input class="btn_copy"; type="submit" value="Copiar">
+        </div>
+        
+        </aside>
+        
+
+  </main>
+  <script src="app.js"></script>
+
+</body>
+</html>
