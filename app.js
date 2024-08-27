@@ -15,6 +15,7 @@ const llaves =[
 ];
 
 
+
 function encriptar(mensaje){
     let mensajeEncriptado = "";
 
@@ -34,12 +35,17 @@ function encriptar(mensaje){
 }
 
 function desencriptar(mensaje){
-   let mensajeDesencriptado = mensaje;
 
-    for(let i=0; i <llaves.length; i++){ //llaves.length
-        let auxRegex = new RegExp(llaves[i][1], "g");
-        mensajeDesencriptado = mensajeDesencriptado.replace(auxRegex, llaves[i][0]);  
+    let mensajeDesencriptado = mensaje;
+
+    //reglas para cambio en las vocales
+    let reglas = { "ai": "a", "enter": "e", "imes": "i", "ober": "o", "ufat": "u" };
+
+    for (let clave in reglas) {
+        let valor = reglas[clave];
+        mensajeDesencriptado = mensajeDesencriptado.split(clave).join(valor);
     }
+    
     return mensajeDesencriptado;
 };
 
@@ -52,6 +58,8 @@ textArea.addEventListener("input", (e) =>{
 
 btn_encriptar.addEventListener("click", (e) =>{
     e.preventDefault();
+    imgResult.style.display = "block";
+    loaderC.style.display = "none";
     let mensaje = textArea.value.toLowerCase();
     let mensajeEncriptado = encriptar(mensaje);
     resultTexto.textContent = mensajeEncriptado;
@@ -61,6 +69,8 @@ btn_encriptar.addEventListener("click", (e) =>{
 
 btn_Desencriptar.addEventListener("click", (e) =>{
     e.preventDefault();
+    imgResult.style.display = "block";
+    loaderC.style.display = "none";
     btn_copiar.style.display = "block";
     let mensaje = textArea.value.toLowerCase();
     let mensajeDesencriptado = desencriptar(mensaje);
